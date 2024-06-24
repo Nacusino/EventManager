@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MVCApp.Models.ApplicationForEvent>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Заявки на мероприятия</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.SpaceDescription)*@
+                Описание помещения
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DesiredStartDate)*@
+                Желаемая дата начала
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DesiredEndDate)*@
+                Желаемая дата конца
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DesiredStartTime)*@
+                Желаемое время начала
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DesiredEndTime)*@
+                Желаемое время конца
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ServicesDescription)*@
+                Описание Услуги
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.OtherRequests)*@
+                Другие пожелания
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Customer)*@
+               Заказчик
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.EventType)*@
+               Тип мероприятия
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpaceDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicesDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherRequests)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventType.EventTypeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.ApplicationId">Подробности</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

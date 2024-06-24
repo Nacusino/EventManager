@@ -1,0 +1,80 @@
+﻿@model MVCApp.Models.Event
+
+@{
+    ViewData["Title"] = "Создание";
+}
+
+<h1>Создать</h1>
+
+<h4>Событие</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewAfterEvent" class="control-label"></label>
+                <input asp-for="ReviewAfterEvent" class="form-control" />
+                <span asp-validation-for="ReviewAfterEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GradeAfterEvent" class="control-label"></label>
+                <input asp-for="GradeAfterEvent" class="form-control" />
+                <span asp-validation-for="GradeAfterEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationId" class="control-label"></label>
+                <select asp-for="ApplicationId" class ="form-control" asp-items="ViewBag.ApplicationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpaceId" class="control-label"></label>
+                <select asp-for="SpaceId" class ="form-control" asp-items="ViewBag.SpaceId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostId" class="control-label"></label>
+                <select asp-for="HostId" class ="form-control" asp-items="ViewBag.HostId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Обратно к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

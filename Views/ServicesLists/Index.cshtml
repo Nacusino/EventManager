@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVCApp.Models.ServicesList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Составы услуг</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Event)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ServiceListId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.ServiceListId">Подробности</a> |
+                <a asp-action="Delete" asp-route-id="@item.ServiceListId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

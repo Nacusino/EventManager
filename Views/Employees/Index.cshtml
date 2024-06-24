@@ -1,0 +1,101 @@
+﻿@model IEnumerable<MVCApp.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Работники</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patronymic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.PassportSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportIssuedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportDateOfIssue)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventCarryingCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.PassportSeries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportIssuedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportDateOfIssue)
+            </td>*@
+            <td>
+                <img class="rounded" height="200" src=@Html.DisplayFor(modelItem => item.Photo)></img>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventCarryingCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post.PostId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Подробности</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

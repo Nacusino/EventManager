@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVCApp.Models.Customer>
+
+@{
+    ViewData["Title"] = " Заказчики";
+}
+
+<h1>Заказчики мероприятий</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patronymic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOfOrganization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfOrganization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.CustomerId">Подробности</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustomerId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
